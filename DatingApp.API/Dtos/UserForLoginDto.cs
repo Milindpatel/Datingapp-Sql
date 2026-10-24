@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
-namespace DatingApp.API.Dtos
+namespace DatingApp.API.Dtos;
+
+public class UserForLoginDto
 {
-    public class UserForLoginDto 
-    {
-        public string Username { get; set; }
-      
-        public string Password { get; set; }
-    }
+    [Required]
+    public string Username { get; set; } = "";
+
+    [Required]
+    public string Password { get; set; } = "";
 }

@@ -6,25 +6,12 @@ namespace DatingApp.API.Models
 {
     public partial class DataContext : DbContext
     {
-        public DataContext()
-        {
-        }
-
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<User> User { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-CKE07VM;Database=DatingApp;Trusted_Connection=True;");
-            }
-        }
+        public virtual DbSet<User> User => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
